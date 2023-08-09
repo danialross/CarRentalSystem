@@ -16,7 +16,7 @@ int userSelectionMenu(){
         cout << "1. Customer Page" << endl;
         cout << "2. Staff Page" << endl;
         cout << "3. Exit" << endl;
-        cout << "Please Select 1,2 or 3" << endl;
+        cout << "Please Select 1,2 or 3." << endl;
         cout << "Your option : "; cin >> buffer;  
         cout << string(30,'*') << endl;
 
