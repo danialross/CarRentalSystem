@@ -4,5 +4,5 @@
 using namespace std;
 
 int staffPage();
-void staffLogin();
+void login();
 void loadLoginInfo(unordered_map<string, string>&);

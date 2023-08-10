@@ -40,7 +40,7 @@ int staffPage(){
         
 }
 
-void staffLogin(){
+void login(){
 
     string username,password,un,pw;
 
