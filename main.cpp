@@ -16,6 +16,14 @@ int main(){
         if(userOption == 1){
 
         }else if(userOption == 2){
+            unordered_map<string, string> map; 
+
+            loadLoginInfo(map);
+
+            for (const auto& x : map) {
+                std::cout << x.first << ": " << x.second << "\n";
+            }
+
 
         }
 
