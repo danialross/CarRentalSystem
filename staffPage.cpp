@@ -40,18 +40,38 @@ int staffPage(){
         
 }
 
-void login(){
+int login(unordered_map<string, string> map){
 
     string username,password,un,pw;
 
-    cout << "Staff Login" << endl;
-    cout << "Enter Username : "; cin >> username;
-    cout << "Enter Password : "; cin >> password;
+    while(true){
 
-    ifstream file(username + ".txt");
+        cout << "Staff Login" << endl;
+        cout << "Enter Username : "; cin >> username;
+        cout << "Enter Password : "; cin >> password;
 
-    getline(file,pw);
+        auto it = map.find(username);
 
+        if(it != map.end() && it->second == password){
+            cout << "Login Successfully." << endl;
+            return 1;
+
+        }else{
+            string tryAgain = "";
+            cout << "Incorrect username and/or password, Do you wish to try again? (y/n)" << endl;
+            cout << "Your option : " ; cin >> tryAgain;
+
+            while(tryAgain != "y" && tryAgain != "n"){
+                cout << "Invalid option, select 'y' or 'n'. " << endl;
+                cout << "Your option : " ; cin >> tryAgain;
+            }
+
+            if(tryAgain == "n"){
+                cout << string(30,'*') << endl;
+                return 0;
+            }
+        }
+    }    
 }
 
 void loadLoginInfo(unordered_map<string, string>& map){
