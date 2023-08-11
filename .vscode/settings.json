@@ -8,6 +8,10 @@
         "unordered_map": "cpp",
         "string_view": "cpp",
         "ostream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "__locale": "cpp",
+        "__string": "cpp",
+        "locale": "cpp",
+        "filesystem": "cpp"
     }
 }

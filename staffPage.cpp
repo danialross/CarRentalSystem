@@ -131,4 +131,84 @@ void printVehicles(){
 
 }
 
+void addVehicle(){
+    string model, amount;
+    int number;
 
+    ofstream file("carDatabase.txt",ios::app);
+
+    if(file.is_open()){
+
+        cout << "Enter car make and model to insert (Model Make) : "; 
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        getline(cin,model);
+        
+        
+        //assuming user will input in this format "Make Model" 
+        //and that the car is not already in the database 
+        //but has validation to capitilize the first letter of each word
+
+        int nextWord;
+
+        model[0] = toupper(model[0]);
+
+        nextWord = model.find(" ") + 1;
+        model[nextWord] = toupper(model[nextWord]);
+        
+        while(true){
+
+            cout << "Enter the amount to be added (1-10) : ";cin >> amount;
+            
+            bool validInput = true;
+            for (char c : amount){
+                if(!isdigit(c)){
+                    validInput = false;
+                    
+                }
+            }
+
+            if(!validInput){
+                cout << endl;
+                cout << "Invalid Input." << endl;
+                cout << endl;
+                continue;
+            }
+
+            number = stoi(amount);
+
+            if (number >= 1 && number <= 10) {
+                
+                file << model << ", " << number << endl;
+                file.close();
+
+                cout << endl;
+                cout << "Successfully Added { " << model << ", " << number << " }." << endl;
+                cout << endl;
+
+                string addAnother;
+                cout << "Would you like to add another car? (y/n)" << endl;
+                cout << "Your Option : " ; cin >> addAnother;
+
+                while(addAnother != "y" && addAnother != "n"){
+                    cout << "Invalid option, select 'y' or 'n'. " << endl;
+                    cout << "Your Option : " ; cin >> addAnother;
+                }
+
+                if(addAnother == "n"){
+                    break;
+                }else{
+                    addVehicle();
+                    break;
+                }
+
+            } else {
+                cout << endl;
+                cout << "Invalid Input." << endl;
+                cout << endl;
+            }
+        }
+
+    }else{
+        cout << "Error Accessing Database." << endl;
+    }
+}

@@ -39,7 +39,7 @@ int main(){
                     if(userOption == 1){
                         printVehicles();
                     }else if(userOption == 2){
-
+                        addVehicle();
                     }else if(userOption == 3){
                         
                     }else if(userOption == 4){
