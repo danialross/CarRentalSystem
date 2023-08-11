@@ -58,9 +58,10 @@ int login(unordered_map<string, string> map){
             return 1;
 
         }else{
-            string tryAgain = "";
+            string tryAgain;
             cout << "Incorrect username and/or password, Do you wish to try again? (y/n)" << endl;
             cout << "Your Option : " ; cin >> tryAgain;
+            tryAgain = tolower(tryAgain[0]);
 
             while(tryAgain != "y" && tryAgain != "n"){
                 cout << "Invalid option, select 'y' or 'n'. " << endl;
@@ -188,6 +189,7 @@ void addVehicle(){
                 string addAnother;
                 cout << "Would you like to add another car? (y/n)" << endl;
                 cout << "Your Option : " ; cin >> addAnother;
+                addAnother = tolower(addAnother[0]);
 
                 while(addAnother != "y" && addAnother != "n"){
                     cout << "Invalid option, select 'y' or 'n'. " << endl;
