@@ -2,8 +2,6 @@
 
 int staffPage(){
 
-    cout << "Staff Page." << endl;
-
     int option = 0;
     string buffer;
     bool isValid = true;
@@ -14,19 +12,20 @@ int staffPage(){
             cout << "Invalid Input" << endl;
         }
 
-        cout << "1. Add a Vehicle" << endl;
-        cout << "2. Remove a Vehicle" << endl;
-        cout << "3. Change a Vehicle" << endl;
-        cout << "4. Return to main menu" << endl;
-        cout << "Please Select 1,2,3 or 4." << endl;
-        cout << "Your option : "; cin >> buffer;  
+        cout << "0. Return to Main Menu" << endl;
+        cout << "1. Print All Available Vehicles" << endl;
+        cout << "2. Add a Vehicle" << endl;
+        cout << "3. Remove a Vehicle" << endl;
+        cout << "4. Change a Vehicle Amount" << endl;
+        cout << "Please Select 0,1,2,3 or 4." << endl;
+        cout << "Your Option : "; cin >> buffer;  
         cout << string(30,'*') << endl;
 
         if(buffer.length() == 1){
             
             if(isdigit(buffer[0])){
                                 
-                if(stoi(buffer) >= 1 && stoi(buffer) <= 4){
+                if(stoi(buffer) >= 0 && stoi(buffer) <= 4){
                     break;
                 }
             }
@@ -53,17 +52,19 @@ int login(unordered_map<string, string> map){
         auto it = map.find(username);
 
         if(it != map.end() && it->second == password){
+            cout << endl;
             cout << "Login Successfully." << endl;
+            cout << endl;
             return 1;
 
         }else{
             string tryAgain = "";
             cout << "Incorrect username and/or password, Do you wish to try again? (y/n)" << endl;
-            cout << "Your option : " ; cin >> tryAgain;
+            cout << "Your Option : " ; cin >> tryAgain;
 
             while(tryAgain != "y" && tryAgain != "n"){
                 cout << "Invalid option, select 'y' or 'n'. " << endl;
-                cout << "Your option : " ; cin >> tryAgain;
+                cout << "Your Option : " ; cin >> tryAgain;
             }
 
             if(tryAgain == "n"){
@@ -98,4 +99,36 @@ void loadLoginInfo(unordered_map<string, string>& map){
     }
 
 }
+
+void printVehicles(){
+
+    string line, model, amount;
+    int modelDistance = 25;
+    int unitDistance = 5;
+    ifstream file("carDatabase.txt");
+
+    getline(file,line);
+
+    cout << endl;
+    cout << "All Available Vehicles." << endl;
+    cout << left << setw(modelDistance) << "Car Model" << setw(unitDistance) << "Units" << endl;
+    while(line.length() != 0){
+
+        int startIndex = 0;
+        int foundIndex = line.find(",");
+
+        model = line.substr(startIndex,foundIndex - startIndex);
+        startIndex = foundIndex + 2;
+        foundIndex = line.find('\n');
+        amount = line.substr(startIndex,foundIndex - startIndex);
+
+        cout << left << setw(modelDistance) << model << setw(unitDistance) << amount << endl;
+        
+        getline(file,line);
+    }
+
+    cout << endl;;
+
+}
+
 

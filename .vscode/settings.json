@@ -5,6 +5,9 @@
         "fstream": "cpp",
         "istream": "cpp",
         "iosfwd": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "string_view": "cpp",
+        "ostream": "cpp",
+        "iomanip": "cpp"
     }
 }

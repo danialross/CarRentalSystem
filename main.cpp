@@ -4,13 +4,14 @@
 using namespace std;
 
 int main(){
-    int userOption = 0;
+    int userOption = -1;
 
-    while(userOption != 3){
+    while(userOption != 0){
 
+        // 0 = Exit
         // 1 = Customer page
         // 2 = Staff Page
-        // 3 = Exit
+        
         userOption = userSelectionMenu();
     
         if(userOption == 1){
@@ -25,11 +26,28 @@ int main(){
             
             if(userOption == 1){
 
-                // userOption = staffPage();
-                // "1. Add a Vehicle"
-                // "2. Remove a Vehicle"
-                // "3. Change a Vehicle"
-                // "4. Return to main menu"
+                while(userOption != 0){
+
+                    userOption = staffPage();
+
+                    // "0. Return to main menu"
+                    // "1. Print All Available Vehicles"
+                    // "2. Add a Vehicle"
+                    // "3. Remove a Vehicle"
+                    // "4. Change a Vehicle Amount"
+
+                    if(userOption == 1){
+                        printVehicles();
+                    }else if(userOption == 2){
+
+                    }else if(userOption == 3){
+                        
+                    }else if(userOption == 4){
+                        
+                    }
+                    
+                }
+
 
 
 

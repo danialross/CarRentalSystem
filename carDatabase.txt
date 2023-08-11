@@ -1,0 +1,30 @@
+Toyota Camry, 7
+Honda Civic, 3
+Ford Mustang, 9
+Chevrolet Corvette, 5
+BMW 3 Series, 2
+Mercedes-Benz E-Class, 8
+Audi A4, 6
+Nissan Altima, 4
+Subaru Outback, 10
+Tesla Model 3, 1
+Toyota Corolla, 3
+Honda Accord, 8
+Ford F-150, 4
+Chevrolet Silverado, 9
+BMW X5, 7
+Mercedes-Benz S-Class, 6
+Audi Q5, 2
+Nissan Maxima, 5
+Subaru Forester, 1
+Tesla Model S, 10
+Toyota RAV4, 5
+Honda CR-V, 2
+Ford Explorer, 8
+Chevrolet Equinox, 3
+BMW 5 Series, 7
+Mercedes-Benz C-Class, 1
+Audi A6, 4
+Nissan Rogue, 9
+Subaru Crosstrek, 6
+Tesla Model X, 10
