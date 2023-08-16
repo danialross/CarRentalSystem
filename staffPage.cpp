@@ -214,3 +214,78 @@ void addVehicle(){
         cout << "Error Accessing Database." << endl;
     }
 }
+
+void removeVehicle(){
+
+    string line, modal;
+    bool exist = false;
+
+    //case sensitive
+    
+
+    cout << "Enter vehicle to remove (Model Make)." << endl;
+    cout << "Your Option : " ; 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    getline(cin, modal);
+
+    //since 6 is the smallest car length "BMW X5" input less then 6 is not valid
+    while(modal.length() < 6){
+        cout << "Invalid option, try again." << endl;
+        cout << "Your Option : ";
+        getline(cin, modal);
+    }
+
+    ofstream output("temp.txt");
+    ifstream input("carDatabase.txt");
+
+    getline(input,line);
+
+    while(line.length() != 0){
+
+        if(line.find(modal) != -1){
+            exist = true;
+            cout << endl;
+            cout << "{ " << line << " } has been successfully removed." << endl; 
+            cout << endl;
+
+        }else{
+            if(output.is_open()){
+                output << line << endl;
+            }else{
+                cout << "Error occurred when removing item from database." << endl;
+            }
+        }
+
+        getline(input,line);
+    } 
+
+    if(!exist){
+        cout << endl;
+        cout << "Vehicle does not exist." << endl;
+        cout << endl;
+    }
+
+    output.close();
+    remove("carDatabase.txt");
+    rename("temp.txt","carDatabase.txt");
+
+    string removeAnother;
+    cout << "Would you like to remove another car? (y/n)" << endl;
+        
+    cout << "Your Option : " ; cin >> removeAnother;
+    removeAnother = tolower(removeAnother[0]);
+
+    while(removeAnother != "y" && removeAnother != "n"){
+        cout << "Invalid option, select 'y' or 'n'. " << endl;
+        cout << "Your Option : " ; cin >> removeAnother;
+    }
+
+    if(removeAnother == "y"){
+        removeVehicle();
+
+    }else{
+        cout << endl;
+        cout << "Returning to staff page." << endl;
+        cout << endl;
+    }
+}

@@ -41,7 +41,7 @@ int main(){
                     }else if(userOption == 2){
                         addVehicle();
                     }else if(userOption == 3){
-                        
+                        removeVehicle();
                     }else if(userOption == 4){
                         
                     }
