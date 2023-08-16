@@ -43,7 +43,7 @@ int main(){
                     }else if(userOption == 3){
                         removeVehicle();
                     }else if(userOption == 4){
-                        
+                        changeAmount();
                     }
                     
                 }

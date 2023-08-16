@@ -221,7 +221,6 @@ void removeVehicle(){
     bool exist = false;
 
     //case sensitive
-    
 
     cout << "Enter vehicle to remove (Model Make)." << endl;
     cout << "Your Option : " ; 
@@ -282,6 +281,113 @@ void removeVehicle(){
 
     if(removeAnother == "y"){
         removeVehicle();
+
+    }else{
+        cout << endl;
+        cout << "Returning to staff page." << endl;
+        cout << endl;
+    }
+}
+
+void changeAmount(){
+     string line, modal;
+    bool exist = false;
+
+    //case sensitive
+
+    cout << "Enter vehicle to change (Model Make)." << endl;
+    cout << "Your Option : " ; 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    getline(cin, modal);
+
+    //since 6 is the smallest car length i.e "BMW X5" input less then 6 is not valid
+    while(modal.length() < 6){
+        cout << "Invalid option, try again." << endl;
+        cout << "Your Option : ";
+        getline(cin, modal);
+    }
+
+    ofstream output("temp.txt");
+    ifstream input("carDatabase.txt");
+
+    getline(input,line);
+
+    while(line.length() != 0){
+
+        if(line.find(modal) != -1){
+            exist = true;
+            
+            string amount;
+            
+            cout << "Select the new number to change to (1-10)" << endl;
+            cout << "Your Option : "; cin >> amount;
+
+            bool validInput = true;
+            for (char c : amount){
+                if(!isdigit(c)){
+                    validInput = false;
+                    
+                }
+            }
+
+            if(!validInput){
+                cout << endl;
+                cout << "Invalid Input." << endl;
+                cout << endl;
+                continue;
+            }
+
+            int number = stoi(amount);
+
+            if (number >= 1 && number <= 10) {
+
+                output << modal << ", " << number << endl;
+
+                cout << endl;
+                cout << "New Value is now { " << modal << ", " << number << " }." << endl;
+                cout << endl;
+
+            }else{
+                cout << endl;
+                cout << "Invalid Input." << endl;
+                cout << endl;
+            }
+
+
+        }else{
+            if(output.is_open()){
+                output << line << endl;
+            }else{
+                cout << "Error occurred when removing item from database." << endl;
+            }
+        }
+
+        getline(input,line);
+    } 
+
+    if(!exist){
+        cout << endl;
+        cout << "Vehicle does not exist." << endl;
+        cout << endl;
+    }
+
+    output.close();
+    remove("carDatabase.txt");
+    rename("temp.txt","carDatabase.txt");
+
+    string changeAnother;
+    cout << "Would you like to change the amount of another car? (y/n)" << endl;
+        
+    cout << "Your Option : " ; cin >> changeAnother;
+    changeAnother = tolower(changeAnother[0]);
+
+    while(changeAnother != "y" && changeAnother != "n"){
+        cout << "Invalid option, select 'y' or 'n'. " << endl;
+        cout << "Your Option : " ; cin >> changeAnother;
+    }
+
+    if(changeAnother == "y"){
+        changeAmount();
 
     }else{
         cout << endl;

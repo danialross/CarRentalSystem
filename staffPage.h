@@ -10,3 +10,4 @@ void loadLoginInfo(unordered_map<string, string>&);
 void printVehicles();
 void addVehicle();
 void removeVehicle();
+void changeAmount();
