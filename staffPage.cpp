@@ -228,7 +228,7 @@ void removeVehicle(){
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, modal);
 
-    //since 6 is the smallest car length "BMW X5" input less then 6 is not valid
+    //since 6 is the smallest car length i.e "BMW X5" input less then 6 is not valid
     while(modal.length() < 6){
         cout << "Invalid option, try again." << endl;
         cout << "Your Option : ";
