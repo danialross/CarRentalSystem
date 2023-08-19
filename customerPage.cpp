@@ -122,6 +122,7 @@ void rent(){
 
 }
 
+// does not check if the car is currently rented, only that we have the same model and increases the amount in inventory
 void returnCar(){
     string line, modal;
     bool exist = false;
