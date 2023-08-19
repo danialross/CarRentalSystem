@@ -27,4 +27,4 @@ Mercedes-Benz C-Class, 1
 Audi A6, 4
 Nissan Rogue, 9
 Subaru Crosstrek, 6
-Tesla Model X, 10
+Tesla Model X, 9

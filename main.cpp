@@ -16,6 +16,25 @@ int main(){
     
         if(userOption == 1){
 
+            while(userOption != 0){
+
+                    userOption = customerPage();
+
+                    // "0. Return to main menu" 
+                    // "1. Rent a Vehicle"
+                    // "2. Return a Vehicle"
+
+                    if(userOption == 1){
+                        rent();
+                    }else if(userOption == 2){
+                        returnCar();
+                    }
+                    
+                }
+
+            //reset user option to original main menu choice to ensure main menu loop
+            userOption = 1;
+
         }else if(userOption == 2){
 
             unordered_map<string, string> map; 
@@ -48,15 +67,11 @@ int main(){
                     
                 }
 
-
-
-
-
-            }else{
-                //reset user option to original main menu choice to ensure main menu loop
-                userOption = 2;
             }
+            //reset user option to original main menu choice to ensure main menu loop
+            userOption = 2;
         }
+        
     }
 
     cout << "Exitting Program." << endl;
