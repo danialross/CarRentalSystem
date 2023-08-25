@@ -1,5 +1,5 @@
 # CarRentalSystem
-Car Rental System for Customer and Admin
+Car Rental System for Customer and Admin (text-based)
 
 requires g++ 
 
